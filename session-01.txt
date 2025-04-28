@@ -1,0 +1,159 @@
+https://github.com/daws-84s
+
+What is DevOps?
+
+SDLC
+Waterfall vs Agile vs DevOps vs DevSecOps vs AiOps
+
+SDLC
+-------
+Requirements analysis
+Planning
+Design --> General requirements to technical requirements
+Implementation
+Deployment
+Testing
+Maintaince
+
+SMS --> School management system
+Examination system
+
+Stakeholders
+=============
+Parents
+Students
+Teachers
+
+50 years back
+
+Gurukuls --> waterfall(legacy model)
+------------
+year end exam
+pass percentage --> 40%
+
+DAY-1
+Students --> Not serious
+Teachers --> Not serious
+Parents --> Yes
+
+More exams --> process change
+
+UNIT-TEST - I, II, III, Quarterly, IV, Half yearly, grand test
+
+DAY-30
+=======
+students --> No
+teachers --> serious
+parents --> serious
+
+pass/fail
+
+25, 30, 35, 50, 70
+
+90%
+
+slip test --> daily test
+========================
+99%
+
+students --> serious
+teachers --> serious
+parents --> serious
+
+clients
+developers
+testers
+operations
+end users
+
+waterfall
+===========
+once requirements are fixed we can't change
+2 years project to go for PROD
+
+last 1 year
+last 1 month deploy --> 100 defects
+20 invalid defects --> 
+
+process change --> Agile
+
+item --> 1 test --> 2 defects
+1000 test --> 3 defects
+
+Agile
+===========
+Final product --> multiple modules --> sprints
+
+login and signup --> sprint-1 --> 30 days
+orders
+menu
+payment
+shipping
+cart
+reviews
+employees
+
+sprint-1
+----------
+clients UAT(user acceptance testing)
+
+daily standups --> 
+
+95% --> 5 defects, 1 invalid defect
+
+sprint-2 --> orders + 4 defects
+
+15 days 15 days testing and deployment
+
+Process change --> Agile with DevOps
+=========================
+
+Signup and Login
+==================
+
+DAY-1 --> enter first name, enter last name, enter DOB
+
+deploy on the same day, test on the same day
+10 defects --> 1 invalid defect
+
+DevOps is the process of building, deploying and testing the code written by developer on the same day instead of doing after complete development.. we can acheive this using continous integration, continous deployment, continous delivery and continous testing. 
+We can do faster releases with less defect using DevOps... basically automation mindset to get the best results
+
+DEV, QA, SIT, UAT, PERF, PRE-PROD, PROD
+
+min 2, max any number
+
+Linux --> Linus torvalds
+=================
+UNIX --> Hardware and Software(Unix OS) together
+CPU, RAM, Hard Disk, OS(Software)
+Laptop --> IBM BIOS
+
+Linux --> from the sratch using C language based on unix principles. He invented git to store this
+
+windows
+-----------
+not open source
+costly
+not secure must install anti virus
+slow
+too many graphics
+frequent restarts
+tough to update/upgrade
+
+Linux --> 9MB
+Secure
+high speed --> mostly text
+no need of restarts
+install or update packages is easy
+free, community support
+low resources
+
+AWS Accounts
+================
+Debit/Credit cards
+International usage should be ON
+
+free trail
+
+
