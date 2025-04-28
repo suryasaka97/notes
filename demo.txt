@@ -1,0 +1,38 @@
+Course Details
+	4 months
+	MON-FRI 07:15-08:45 AM IST
+	Slack community
+	Life time access to recordings, slack and QA
+	QA daily 6 hours
+	Resume sessions, Interview behaviour
+	ATS resume session
+	Interview preparation
+		scenario based, twisted, indirect
+	weekly quiz
+	Project based learning from DAY-1
+	daily notes and architecture diagrams
+	Multiple Environments
+	Articles
+Why DevOps is popular? can It be there in next 10 years
+DevOps vs DevSecOps vs AIOps/MLOps
+Why Our course is diff
+	Recorded vs Live
+	Discipline and engaging
+	Updates
+	Eco system
+	Job portal
+Who can take this course
+			IT professionals --> any technology, any experience
+			NON-IT
+			Career Gap
+			College students
+			Freshers
+Placement assistance
+Certifications
+	AWS solutions architect associate
+	Terraform associate
+	CKA
+AI replace DevOps
+
+i5/i7 16GB
+i3 8GB --> worst case
