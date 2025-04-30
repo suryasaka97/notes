@@ -14,6 +14,13 @@ ls -lt --> latest files on top
 ls -ltr --> latest at bottom
 ls -la --> all files including hidden files and folders
 
+ls -ltra breakdown:
+-l: long listing format (detailed info)
+-t: sort by time (modification time)
+-r: reverse the order (oldest first)
+-a: include all files (including hidden ones)
+So, ls -ltra lists all files including hidden ones, with detailed info, sorted by modification time (oldest first).
+
 touch <file-name> --> creates empty file
 
 cat > <file-name> --> type text, enter and ctrl+d
