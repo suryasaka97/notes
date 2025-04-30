@@ -3,6 +3,47 @@
 $ --> normal user
 # --> root/admin/super user
 /root --> root user home directory
+Great question — let's break it down:
+
+ ✅ `sudo` vs `su` vs `sudo su`
+
+| Command       | What it does                                                  | Needs root password? | Recommended? |
+|---------------|---------------------------------------------------------------|-----------------------|--------------|
+| `sudo`        | Runs **one command** as root (or another user)                | **No**, uses *your* password | ✅ Yes         |
+| `su`          | Switches to **root user shell** (full root access)            | **Yes**, needs root's password | ⚠️ Not always |
+| `sudo su`     | Runs `su` as root via `sudo` → switches to root **shell**     | **No**, uses *your* password (if sudoer) | ⚠️ Use with care |
+
+---
+
+🔍 Detailed Explanation
+
+- **`sudo <command>`**:  
+  Temporarily executes a single command as root.  
+  Example:  
+  ```bash
+  sudo apt update
+  ```
+
+- **`su` (switch user)**:  
+  Switches to the root user shell. Requires root **password**.  
+  Example:  
+  ```bash
+  su
+  # Then you'll be root and get a `#` prompt
+  ```
+
+- **`sudo su`**:  
+  Executes `su` with root privileges, so you become root **without knowing root's password**, only your own (if you're a sudoer).  
+  Example:  
+  ```bash
+  sudo su
+  # Now you're root and stay in a root shell
+
+🔐 Best Practice:
+- Use `sudo <command>` for individual tasks — safer, logs each command, and limits exposure.
+- Avoid full root shells unless absolutely needed (`sudo su` or `su`), because:
+  - It's easier to accidentally break things.
+  - There's no command-by-command auditing.
 
 command <options> <inputs>
 
@@ -24,24 +65,66 @@ So, ls -ltra lists all files including hidden ones, with detailed info, sorted b
 touch <file-name> --> creates empty file
 
 cat > <file-name> --> type text, enter and ctrl+d
-previous content will be replaced
-cat >> <file-name> --> appends text to previous content
+cat = concatenate
+Imagine `cat` as a **water pipe**:
+- The **file’s content** is like water.
+- The `cat` command **sends** (or “pours”) that content to some destination — usually the **screen**, or maybe **another file**, or **another command**.
+---
+✅ Examples to illustrate:
+1. **Pour into screen (default behavior)**:
+cat myfile.txt
+You’ll see the contents of `myfile.txt` printed (poured) **onto your screen**.
 
+2. **Pour into another file** (redirection using `>`):
+cat file1.txt > file2.txt
+This copies the contents of `file1.txt` into `file2.txt`. Like pouring water from one bottle to another.
+
+3. **Pour into another command** (using pipe `|`):
+cat file.txt | grep "hello"
+This sends the contents of `file.txt` into the `grep` command to **search for “hello”**. Like pouring water through a filter.
+
+cat >> <file-name> --> appends text to previous content,It will not replace it will appened to old content
 
 > --> usually called as redirection
-
+**`>`** symbol.
+What is `>` in Linux?
+The `>` symbol is called the **redirection operator**.
+It **redirects output** from a command into a **file**, instead of showing it on the screen.
+🔸Meaning:
+It tells the shell:
+> “Take the output of this command and write it **into a file**.”
+---
+✅ Example:
+```bash
+echo "Hello world!" > message.txt
+```
+- This creates a file called `message.txt`.
+- It writes “Hello world!” into that file.
+- If `message.txt` already exists, it gets **overwritten**.
+---
+⚠️ Important:
+- `>` **overwrites** the file.
+- To **append** instead of overwrite, use `>>`
+---
 mkdir <name> --> creates directory
 rmdir --> remove empty directory
 rm -f --> forcefully removes file
 rm -rf --> recursively forcefully delete the files and folders inside too
-
+rm     → remove command  
+-r     → recursive (delete folders and everything inside)  
+-f     → force (don’t ask for confirmation, ignore errors)
+-----
 CRUD --> create read update delete
 
 cp <source> <destination> --> copy files/folders
 mv <source> <destination> --> cut and paste
+Move a file to a new location: mv file.txt /path/to/directory/
+Rename a file: mv oldname.txt newname.txt
 
 wget <URL> --> downloads the file
 curl <URL> --> shows on the screen
+Use wget: For simple, one-off downloads or recursive downloads.
+Use curl: When you need more control over the request, such as sending data to a server, working with APIs, or customizing headers.
 
 cat <file-name> | grep <word-to-search>
 grep <word-to-search> <file>
@@ -55,6 +138,7 @@ awk command
 echo https://raw.githubusercontent.com/daws-84s/notes/refs/heads/main/session-02.txt | awk -F "/" '{print $1F}'
 
 log files --> tail -f <log-file>
+head
 
 find <where to search> -name <file-name>
 
