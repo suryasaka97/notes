@@ -144,3 +144,20 @@ find <where to search> -name <file-name>
 
 vim --> visually improved
 
+Sure! Here's the short version:
+
+---
+
+### ✅ `sudo su`
+- Switches to root **but keeps your user's environment**.
+- You're acting as root, but not fully logged in as root.
+
+### ✅ `sudo su -`
+- Switches to root **with root’s full environment**.
+- Like a real root login (safer for system-level tasks).
+
+---
+
+Use `sudo su -` when you want to fully become root.  
+Use `sudo su` when you just need root access temporarily.
+
