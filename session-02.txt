@@ -118,6 +118,54 @@ command <options> <inputs>
 /home/ec2-user --> linux home directory
 /c/users/siva --> windows home directory
 
+
+
+`.pem` and `.ppk` files are both **private key formats**, but they're used by **different tools**:
+
+---
+
+### 🔑 `.pem` (Privacy Enhanced Mail)
+- **Format**: Base64-encoded, OpenSSL standard.
+- **Used by**: Linux/macOS, Bash, MobaXterm (in SSH sessions), and AWS EC2.
+- **Default with**: OpenSSH (Linux terminal)
+- You connect with:
+  ```bash
+  ssh -i mykey.pem user@host
+  ```
+
+---
+
+### 🔑 `.ppk` (PuTTY Private Key)
+- **Format**: Proprietary format used by PuTTY.
+- **Used by**: PuTTY (Windows), WinSCP, Pageant.
+- Cannot be used directly with `ssh` in Bash — must be **converted**.
+
+---
+
+### 🔁 Convert `.pem` to `.ppk` (for PuTTY):
+Using **PuTTYgen**:
+1. Open PuTTYgen
+2. Click **Load**, select `.pem` file
+3. Click **Save private key** → you get a `.ppk` file
+
+---
+
+### 🔁 Convert `.ppk` to `.pem`:
+Using PuTTYgen:
+1. Open `.ppk`
+2. Go to **Conversions > Export OpenSSH key**
+
+---
+
+### 📌 Summary:
+
+| Format | File Ext | Used With         | OS          |
+|--------|----------|-------------------|-------------|
+| PEM    | `.pem`   | OpenSSH, AWS, bash, MobaXterm | Linux/macOS/Windows |
+| PPK    | `.ppk`   | PuTTY, WinSCP     | Windows     |
+
+Would you like help converting a key or choosing which format to use for a specific tool?
+
 cd --> change directory
 
 cd .. --> one step back
