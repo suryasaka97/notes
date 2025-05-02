@@ -246,3 +246,5 @@ ssh -i ~/Downloads/my-ec2-key.pem ec2-user@13.250.88.101
 | Debian                | `admin` or `debian` |
 
 
+
+
