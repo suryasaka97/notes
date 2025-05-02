@@ -54,3 +54,9 @@ usermod -g devops suresh
 usermod -aG testers suresh
 
 passwd <user-name>
+
+Deleting user from the specific group...> gpasswd -g suresh testers
+Deleting the specific Group:  sudo groupdel groupname
+
+
+
