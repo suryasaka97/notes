@@ -171,3 +171,78 @@ cd --> change directory
 cd .. --> one step back
 
 ls --> list subdirectories
+
+Yes, ✅ the command `ssh-keygen -t rsa` **does work** and is valid.
+
+---
+
+### 🔧 Command:
+```bash
+ssh-keygen -t rsa
+```
+
+### 🔍 What it does:
+- Generates a **RSA-type** SSH key pair
+- Uses the **default key length** (usually 3072 bits or 2048 depending on system)
+- Asks where to save the key (`~/.ssh/id_rsa` by default)
+- Creates:
+  - 🔑 Private key: `id_rsa`
+  - 📄 Public key: `id_rsa.pub`
+
+---
+
+### ✅ For stronger security, prefer:
+```bash
+ssh-keygen -t rsa -b 4096
+```
+
+Or for modern security:
+```bash
+ssh-keygen -t ed25519
+```
+
+(Ed25519 is faster and more secure than RSA for most modern systems.)
+
+ The command to connect to an EC2 instance using your private key:
+---
+
+### ✅ SSH Command:
+```bash
+ssh -i /path/to/your-key.pem ec2-user@your-ec2-public-ip
+```
+
+---
+
+### 🧾 Explanation:
+- `ssh`: The command to initiate an SSH connection
+- `-i`: Specifies the **identity file** (your `.pem` private key)
+- `/path/to/your-key.pem`: Full path to your PEM file
+- `ec2-user`: The default username for Amazon Linux
+- `your-ec2-public-ip`: The **public IPv4 address** of your EC2 instance
+
+---
+
+### 🧪 Example:
+```bash
+ssh -i ~/Downloads/my-ec2-key.pem ec2-user@13.250.88.101
+```
+
+---
+
+### ⚠️ Make sure:
+- Your `.pem` file has **400 permissions**:
+  ```bash
+  chmod 400 my-ec2-key.pem
+  ```
+- The EC2 **Security Group allows inbound SSH (port 22)**
+- You're using the **correct username**, which depends on the AMI:
+
+| AMI Type              | Username     |
+|-----------------------|--------------|
+| Amazon Linux          | `ec2-user`   |
+| Ubuntu                | `ubuntu`     |
+| CentOS                | `centos`     |
+| RHEL                  | `ec2-user` or `root` |
+| Debian                | `admin` or `debian` |
+
+
