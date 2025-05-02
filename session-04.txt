@@ -59,4 +59,90 @@ Deleting user from the specific group...> gpasswd -g suresh testers
 Deleting the specific Group:  sudo groupdel groupname
 
 
+---
+
+## 🧾 SSH Login via Password – Step-by-Step Notes
+
+### 🔐 By Default:
+- Password-based SSH login is often **disabled** for security.
+
+---
+
+### ✅ To Enable Password SSH Login:
+
+1. **Edit SSH configuration file:**
+```bash
+sudo nano /etc/ssh/sshd_config
+```
+
+2. **Modify or add these lines:**
+```
+PasswordAuthentication yes
+PermitRootLogin yes   # only if root login is needed (optional & risky)
+```
+
+> 🔒 Best practice: keep `PermitRootLogin no` and use regular users with `sudo`.
+
+3. **Check config syntax (optional but recommended):**
+```bash
+sudo sshd -t
+```
+
+- ✅ No output = syntax is valid.
+- ❌ Output = fix the error shown.
+
+4. **Restart SSH service:**
+```bash
+sudo systemctl restart sshd
+```
+
+5. **(Optional) Set a password for the user:**
+```bash
+sudo passwd your_user
+```
+
+6. **Connect via SSH from client machine:**
+```bash
+ssh your_user@<external_ip>
+```
+
+---
+
+## 🖊️ Basic `vi` Editor Navigation
+
+### 🔄 Modes:
+- **Insert mode:** `i` (to type/edit text)
+- **Escape mode:** `Esc` (to return to command mode)
+- **Command mode (bottom):** `:` (to give commands like `:wq`, etc.)
+
+---
+
+### 📌 Line Navigation:
+| Command | Meaning |
+|--------|---------|
+| `40G` or `40gg` | Jump to line 40 |
+| `gg`            | Jump to first line |
+| `G`             | Jump to last line |
+
+> Use in **normal mode (after pressing `Esc`)**
+
+---
+
+### 🔍 Search in `vi`:
+
+| Command         | Searches for...          |
+|----------------|--------------------------|
+| `:/password`    | Search **forward** for "password" |
+| `:?password`    | Search **backward** for "password" |
+
+Use `/` or `?` in **normal mode**, then press `Enter`.
+
+- Use `n` for **next match**
+- Use `N` for **previous match**
+
+---
+
+
+
+
 
