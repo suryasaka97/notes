@@ -58,7 +58,39 @@ passwd <user-name>
 Deleting user from the specific group...> gpasswd -g suresh testers
 Deleting the specific Group:  sudo groupdel groupname
 
+...................................................
+Note:SSH client is putty, gitbash anything in our local by which we are going to connect.
+Yes — when launching an **EC2 instance**, AWS **does prompt you to choose or create a key pair**. This key pair includes:
+### ✅ What Happens at EC2 Launch:
 
+1. **AWS asks you to select a key pair:**
+   - You can **choose an existing key pair**, or
+   - **Create a new one** (this generates a private and public key pair).
+
+2. **Download the Private Key (.pem):**
+   - You **must download** the `.pem` file at this time — AWS won’t let you download it again later.
+   - This file is what you use to **SSH into your EC2 instance**.
+
+3. **Public Key Automatically Goes to EC2:**
+   - The **public key** is installed into your EC2 instance at:
+     ```
+     /home/ec2-user/.ssh/authorized_keys
+     ```
+   - This allows your **private key** to be matched and authenticated when you SSH.
+
+---
+
+### 🔐 Summary:
+| Key | Where It Goes | Purpose |
+|-----|----------------|---------|
+| **Public Key** | Inside EC2 | Verifies who can log in |
+| **Private Key (.pem)** | You download and keep it safe | Used by your SSH client to connect |
+
+---
+
+⚠️ If you don’t select or create a key pair, **you won’t be able to SSH into the instance** later — unless you manually add keys afterward.
+
+Do you want to try generating your own key pair locally instead of using AWS’s?
 ---
 
 ## 🧾 SSH Login via Password – Step-by-Step Notes
