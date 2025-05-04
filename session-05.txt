@@ -73,7 +73,76 @@ chmod 600 ~/.ssh/config
 This helps avoid SSH warnings about insecure file permissions.
 ---
 
-Would you like a command to test your SSH connection afterward?
+Let's break down this line to understand the **file permissions, ownership, and what it tells us** about the `.ssh` directory inside your EC2 instance:
+---
+### 🧾 Example Output:
+```bash
+drwx------. 2 ec2-user ec2-user  29 May  2 07:21 .ssh
+```
+We'll break it into pieces:
+
+### 📌 1. `drwx------.`
+
+This is the **permission string**, and it's broken down like this:
+
+| Character(s) | Meaning |
+|--------------|---------|
+| `d`          | It's a **directory**. |
+| `rwx`        | The **owner** (`ec2-user`) has **read, write, and execute** permissions. |
+| `---`        | The **group** (`ec2-user`) has **no permissions**. |
+| `---`        | **Others (everyone else)** have **no permissions**. |
+| `.`          | Indicates **SELinux context** is applied (you can ignore it unless using SELinux). |
+
+---
+
+### 📌 2. `2`
+
+This is the **link count**, meaning:
+- This directory has **2 hard links** (normally one for the directory itself, and one for its parent reference `..`).
+
+---
+
+### 📌 3. `ec2-user ec2-user`
+
+These are:
+- **Owner**: `ec2-user`  
+- **Group**: `ec2-user`
+
+So both the file owner and the group are the same here.
+
+---
+
+### 📌 4. `29`
+
+This is the **size** in bytes (29 bytes total for the `.ssh` folder metadata).
+
+---
+
+### 📌 5. `May  2 07:21`
+
+This is the **last modified date/time** of the `.ssh` directory.
+
+---
+
+### 🔐 Why `.ssh` Should Have `700` Permissions:
+
+The `.ssh` folder holds **sensitive key files**, so the permissions should always be strict:
+```bash
+drwx------ (700)
+```
+
+- Only the **owner** can enter/read/write the `.ssh` directory.
+- **No other users** can view or access it — important for SSH security.
+
+---
+
+### ✅ Summary of Permissions in Numeric Form:
+
+| Symbolic | Numeric | Meaning |
+|----------|---------|---------|
+| `rwx------` | `700` | Only the user has full permissions. |
+| `rw-------` | `600` | Used for private keys (`id_rsa`, etc.). |
+| `rw-r--r--` | `644` | Used for public keys (`id_rsa.pub`, etc.). |
 
 
 permissions
@@ -82,9 +151,9 @@ R -> 4
 W -> 2
 X -> 1
 -			rw-		r--		r--
-file/		user/   group	others
+file/		        user/           group	        others
 			owner
-directory     u       g       o
+directory                  u               g              o
 
 ec2-user ec2-user
 user		group
