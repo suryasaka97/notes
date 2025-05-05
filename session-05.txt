@@ -363,6 +363,10 @@ yum/dnf
 dnf install <package-name>
 /etc/yum.repos.d
 
+dnf list install - to see installed packages
+dnf list available - all available packages to install
+dnf list available | grep python
+
 service management
 ===================
 systemctl start <service-name>
