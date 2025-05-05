@@ -264,6 +264,7 @@ user		group
 
 chmod ugo+w devops.txt
 chmod u=rw,g=r,o=r aws.txt
+chmod u=rwx,g=rx,o=rx home
 chmod u+rw,u-x,g+r,g-wx,o+r,o-wx aws.txt
 chmod 700 devops.txt
 
