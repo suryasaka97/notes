@@ -263,6 +263,8 @@ ec2-user ec2-user
 user		group
 
 chmod ugo+w devops.txt
+chmod u=rw,g=r,o=r aws.txt
+chmod u+rw,u-x,g+r,g-wx,o+r,o-wx aws.txt
 chmod 700 devops.txt
 
 only owner/root user can change the permissions
@@ -291,6 +293,64 @@ ssh -i <key> ec2-user@IP
 
 /etc/sudoers --> you can do changes to provide root access
 or add user to wheel group without password
+✅ Exactly right — that’s a **solid and scalable approach**.
+
+
+---
+Scenario where we need to give permission to 3 users and 5 group people
+
+### 🛠️ Step-by-Step:
+
+#### 1️⃣ **Create a Common Group**
+```bash
+sudo groupadd common_group
+```
+
+#### 2️⃣ **Add 3 Users to This Group**
+These are **additional (secondary) groups** for the users:
+
+```bash
+sudo usermod -aG common_group user1
+sudo usermod -aG common_group user2
+sudo usermod -aG common_group user3
+```
+
+> 🔄 Use `groups user1` to verify membership.
+
+#### 3️⃣ **Add Other Group Members**
+If the 5 groups each have members who need access, **add those users individually** to the `common_group` as well:
+
+```bash
+# Add one member from each group
+sudo usermod -aG common_group user_from_group1
+sudo usermod -aG common_group user_from_group2
+...
+```
+
+> 📌 You **cannot nest groups** in Linux. So users from other groups must be **manually added** to `common_group`.
+
+#### 4️⃣ **Change Group Ownership of the File**
+```bash
+sudo chown root:common_group filename
+```
+
+#### 5️⃣ **Set Proper File Permissions**
+```bash
+chmod 660 filename   # read-write for owner and group, no access for others
+```
+
+---
+
+### 🔐 Permissions Summary for `chmod 660`
+
+| Role       | Permission |
+|------------|------------|
+| Owner (root)   | Read + Write |
+| Group (common_group) | Read + Write |
+| Others     | No access   |
+
+---
+
 
 package management
 ====================
