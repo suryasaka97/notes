@@ -1,0 +1,71 @@
+we have our own AMI
+devops-practice, ec2-user DevOps321
+not keybased, this is password based
+
+AMI --> Amazon machine image
+
+image --> we and our surroundings
+
+AMI --> base os --> redhat 9 + nginx + applications + packages --> take it as an image
+
+pre configured OS with some packages
+
+public ip vs private ip
+
+192.168.1.102 --> private
+103.149.59.114 --> public
+
+Linux is physical server... nginx is virtual server running in linux server
+
+yum install nginx -y
+
+dnf install nginx -y
+
+dnf is the advanced version of yum, there are modules in dnf
+
+apt-get install nginx -y
+
+/etc/nginx/nginx.conf --> configurations. you must restart the service when there are some config changes
+
+root /usr/share/nginx/html
+
+http://44.201.38.173:80
+
+index.html --> default html
+
+godaddy --> domain registar, almost 1000 every year
+hostinger --> cheapest domains for 1st year, for every renewal it is costly
+
+joindevops --> 62819 37079
+word = meaning
+
+key --> value
+
+computers only understand 0 and 1.. usually these binaries will be converted to decimal
+
+facebook --> 143.234.53.98
+
+Domain Name system
+
+DNS resolver is the component in ISP that is responsible to provide IP address.
+
+DNS resolver contacts root servers
+
+facebook.com --> TLD .com is TLD
+daws84s.site --> TLD is .site
+
+.in, .io, .org, .net, .edu, .gov, .co, .ai, .shop, .pizza, .space, .online
+
+.siva can be registered as TLD. godaddy, hostinger, etc are domain sellers..
+
+A --> IP address
+CNAM --> points to another domain
+MX --> mail records
+TXT --> domain verifications
+NS --> who is managing this domain now
+
+domain registar responsibility to updat the details to TLD
+
+Nameservers
+
+TTL -> time to live
