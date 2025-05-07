@@ -1,0 +1,87 @@
+google.com --> browser cache --> OS --> OS Cache --> ISP DNS resolver --> root servers --> TLD info --> .com TLD --> name servers --> A record
+
+name servers --> who are managing that domain now
+domain registar --> a mediator to sell the domain, they have default name servers
+
+create hosted zone in AWS, get the NS records and update in domain provider
+TTL --> time to live is DNS cache before issuing next DNS request
+
+A --> IpV4
+CNAME --> points to another domain
+MX --> mail records
+TXT --> domain verification
+NS --> Nameservers
+AAAA -> Ipv6
+
+750 hours --> t2.micro or t3.micro
+31 days
+
+1 instance --> 1month
+2 instance --> 15 days
+11 instances --> 3 days
+
+mobaxterm
+
+sudo set-prompt frontend
+
+MySQL/Oracle/Postgress/MSSQL --> RDBMS --> tables and columns, primary keys and foreign keys
+
+MongoDB --> NoSQL --> documents
+
+{
+	"name": "sivakumar",
+	"email": "info@joindevops.com"
+}
+
+127.0.0.1 == localhost
+
+system/service user --> non human users which will not have login, intented to run applications
+
+we will create one folder and download our code there
+
+dnf install nginx
+dnf install mongodb-org
+
+dnf install catalogue --> can't
+
+/app --> this directory to have catalogue code
+
+I can keep /app as home directory to systemuser
+
+nginx:x:991:990:Nginx web server:/var/lib/nginx:/sbin/nologin
+
+/etc/shadow --> encrypted password here
+
+roboshop user --> home dir /app and nologin
+
+useradd --system --home /app --shell /sbin/nologin --comment "roboshop system user" roboshop
+
+Java/NodeJS/Python
+
+java script --> .js
+java --> .java
+python --> .py
+go --> .go
+
+every programming have dependencies or libraries
+
+build tool -> compile(syntax check), download the dependencies, ready to run
+build file
+
+nodejs --> npm(node package manager)
+build file --> package.json
+
+npm install --> it search for package.json in the current directory
+
+you install programming language
+create one directory
+create one user
+downlod the code
+install dependencies
+
+we need to create systemctl file --> starting, stopping, restarting, enable/disable are easy
+
+/etc/systemd/system --> create .service file, catalogue.service file
+
+
+
