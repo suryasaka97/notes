@@ -1,0 +1,61 @@
+frontend
+daws84s.site/api/catalogue --> 
+
+http://daws84s.site/api/catalogue/categories
+
+http://daws84s.site/api/catalogue/products/Artificial%20Intelligence
+
+[
+    {
+        "_id": "681d63fc59c47e0558c59f36",
+        "sku": "Ewooid",
+        "name": "Ewooid",
+        "description": "Fully sentient assistant",
+        "price": 200,
+        "instock": 0,
+        "categories": [
+            "Artificial Intelligence"
+        ]
+    },
+    {
+        "_id": "681d63fc59c47e0558c59f3e",
+        "sku": "STAN-1",
+        "name": "Stan",
+        "description": "Observability guru",
+        "price": 67,
+        "instock": 1000,
+        "categories": [
+            "Robot",
+            "Artificial Intelligence"
+        ]
+    },
+    {
+        "_id": "681d63fc59c47e0558c59f35",
+        "sku": "Watson",
+        "name": "Watson",
+        "description": "Probably the smartest AI on the planet",
+        "price": 2001,
+        "instock": 2,
+        "categories": [
+            "Artificial Intelligence"
+        ]
+    }
+]
+
+/var/log/nginx/access.log
+
+/var/log/messages
+
+HD(ROM) --> RAM --> Apps
+
+App --> DB
+
+Send a connection req to DB
+Connection establish
+Run a query against DB
+DB should fetch the data from HD
+Send response to app
+Close the connection
+
+App --> Cache
+App --> Cache --> DB --> Cache
