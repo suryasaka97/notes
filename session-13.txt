@@ -1,0 +1,61 @@
+payment --> python
+
+extension --> .py
+pip
+requirements.txt
+
+softlink/symlink hardlink and inode
+
+shortcut(is also a file pointing real file) --> points to other real file
+if I delete real file, shortcut will break
+
+inode --> this is the metadata of the file
+
+file permissions
+ownership
+size
+original memory adress location of the file
+
+symlink is like shortcut to original file. hardlink is like a copy of file. it is like backup
+symlink and original file will have a diff inode. symlinks are used to point diff versions
+
+ln -s <original-file> <symlink-file>
+
+find / -name "*.conf"
+
+/etc/nginx/nginx.conf --> /etc/nginx-1.conf
+/etc/nginx/nginx.conf --> /etc/nginx-2.conf
+
+dnf-4 install nginx -y
+
+/usr/bin/dnf --> dnf-4
+
+
+Symlink will have diff inodes, hardlinks will have same inode
+if original file is deleted symlink will break. if original file deleted hard link will work
+symlink is used to point diff versions, hardlink is used as backup to original file
+symlink can be created to folders, we can't create hard link to folders
+symlink will work with diff types of disks, hardlink can't be created for diff disks
+
+memory troubleshooting
+-------------------------
+memory - RAM
+storage - HD
+
+swap memory is from HD as virtual RAM
+HD --> RAM --> Programs
+
+disk usage -> df -hT
+
+du -sh <folder-path>
+du -sh * --> all files and folders size will be displayed
+
+/app --> /opt/app
+
+/usr/share/nginx/html --> nginx root directory
+/usr/bin
+/usr/sbin
+/usr/local/bin/
+
+/proc --> processes started by kernel
+
