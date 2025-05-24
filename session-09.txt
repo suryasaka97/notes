@@ -1,0 +1,88 @@
+MySQL
+=======
+table and column database --> RDBMS
+
+Linux Server --> MySQL server
+
+House --> Linux Server
+Room --> DB server
+Rac --> Schema --> tables
+1DB server may have 1 or many
+transactions, users, 
+
+
+telnet mysql.daws84s.site 3306 --> checks whether mysql is allowing connections to it on port 3306
+
+/etc/nginx/nginx.conf
+
+prime --> server, vpn is client for prime
+client --> mobile
+
+we are hiding client identity --> forward proxy
+actual client --> forward proxy --> server
+
+1. content filtering
+2. traffic monitoring
+3. anonymous client
+4. geo restrictions bypass
+5. caching
+
+Reverse proxy
+----------------
+Nginx can be used as load balancer, reverse proxy server, web server
+
+1. client is not aware of server identity
+2. security
+3. load balancing
+4. SSL termination
+
+Frontend --> Backend
+
+telnet backend.daws84s.site 8080
+login to backend and check systemctl status backend
+check logs /var/log
+
+http://daws84s.site/api/transaction
+
+HTTP Status codes
+-------------------
+1XX --> information
+2XX --> success
+3XX --> redirection
+
+errors
+---------
+4XX --> client side error
+5XX --> server side error
+
+CRUD
+=======
+INSERT
+SELECT
+UPDATE
+DELETE
+
+
+reports --> daily, weekly, monthly, quarterly
+bank-records
+user
+notifications
+ai/ml
+
+saas
+
+configuring server
+-------------------------
+Linux server creation
+programming language installation includes build tool
+create one dedicated directory for our application /app
+create one system user for our application roboshop
+download the code into our directory
+install dependencies
+create systemctl service
+if required load data
+start the service
+
+telnet mysql.daws84s.site 3306 --> connected
+user password problem
+query problem

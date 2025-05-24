@@ -1,0 +1,33 @@
+1. Process idea
+2. Coding syntax
+
+sed editor --> stream editor
+
+adding the lines
+deleting the lines
+replace the words
+
+sed -i/-e 'expression' filename
+
+adding the line
+
+sed -e '1 a Hello Wolrd' users
+
+-e --> temp change onto the screen
+-i --> perm change
+
+idempotency
+==============
+irrespective of the number of time you run something it should not change the result
+
+API Development
+
+POST --> not idempotency
+check user already exist or not, if not create otherwise show the error
+first time entry will be created
+
+GET --> idempotent
+
+PUT(UPDATE) --> idempotent, but for better user experience, same details are already updated
+
+DELETE --> idempotent, but for better user experience, user already deleted

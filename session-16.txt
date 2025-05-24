@@ -1,0 +1,60 @@
+Colors in shell
+---------------------
+\e[<code>m
+
+31 -> red 32 -> green 33 -> yellow
+
+redirections
+---------------------
+< -- denotes input
+> --> denotes output
+
+ls -l 1> output.log --> 1 denotes success output
+lfadflafd 2> output.log --> 2 denotes failure output
+
+14-logs.sh.log
+14-logs.log
+
+14-logs.sh
+
+I want basic log on the screen too
+
+loops
+-------------------
+for(int i=0; i<=100; i++){
+	print i;
+}
+
+1. create 11 instances
+2. rename them
+3. update r53 record
+	if( instance is frontend )
+		update public ip
+	else
+		update private ip
+		
+frontend --> API --> backend
+
+authentication and authorization
+===================================
+authentication --> prove yourself
+authorization --> prove yourself, check whether you have access or not
+
+access key and secret key
+
+aws configure
+
+ aws configure
+AWS Access Key ID [None]: 
+AWS Secret Access Key [None]: 
+Default region name [None]: us-east-1
+Default output format [None]:
+
+aws s3 ls --> just check working or not, no o/p also fine except error
+
+1. create instances
+	AMI ID, SG ID, SUBNET ID
+	
+aws ec2 run-instances --image-id ami-09c813fb71547fc4f --instance-type t2.micro --security-group-ids sg-01bc7ebe005fb1cb2 --tag-specifications "ResourceType=instance,Tags=[{Key=Name, Value=test}]" --query "Instances[0].PrivateIpAddress" --output text
+
+aws ec2 describe-instances --instance-ids i-0abcdef123456789 --query "Reservations[0].Instances[0].PrivateIpAddress" --output text
